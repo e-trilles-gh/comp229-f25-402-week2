@@ -6,6 +6,8 @@ import Contact from './components/Contact';
 import Education from './components/Education';
 import Projects from './components/Projects';
 import Services from './components/Services';
+import Footer from './components/Footer';
+import PdfViewer from './components/PdfViewer';
 
 const MainRouter = () => {
     return (
@@ -18,7 +20,9 @@ const MainRouter = () => {
                 <Route path="/education" element={<Education />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/services" element={<Services />} />
+                <Route path="/pdf-view" element={<PdfViewer />} />
             </Routes>
+            <Footer />
         </>
     )
 }
