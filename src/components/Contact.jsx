@@ -1,18 +1,31 @@
 import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
+    // initialize the useNavigate
     const navigate = useNavigate();
 
     const submitData = (event) => {
+        // prevent the default response on the form submission
         event.preventDefault();
+
+        // captures the data from the form and stores it as key value pair in an object
         const formData = new FormData(event.target);
 
+        // iterate through all the fields to get the data
         for (let [name, value] of formData.entries()) {
             console.log(name, value);
+
+            // stores the key value pair in localStorage
             localStorage.setItem(name, value);
+
+            // sets the duration the data will be stored
             const maxAge = 60 * 60 * 24;
+
+            // creates cookies available for the entire project
             document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + "; path=/; max-age=" + maxAge;
         }
+
+        // navigate to the home page
         navigate("/");
     }
     return (

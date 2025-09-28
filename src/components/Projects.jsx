@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 export default function Projects() {
+
+    // creates an array that holds the image file names
   const images = [
     "mainUI.png",
     "equipmentPage.png",
@@ -11,6 +13,7 @@ export default function Projects() {
     "menuList.png",
   ];
 
+  // creates an array that holds caption for each image
   const captions = [
     "First Main UI",
     "Equipment Page",
@@ -21,6 +24,7 @@ export default function Projects() {
     "Menu List",
   ];
 
+  // creates an array that holds description for each image
   const descriptions = [
     "This is the main UI of my past projects.",
     "Equipment page displays photos. Clicking on a photo opens the corresponding detail page. Each detail page can hold descriptions and more images.",
@@ -31,10 +35,14 @@ export default function Projects() {
     "The menu list displays photos of the items and its prices. When the user hovers on each photo, additional information is shown to the user.",
   ];
 
+  // stores and sets the index, and initializes the index to 0
   const [currentIndex, setCurrentIndex] = useState(0);
   const imageCount = images.length;
 
+  // ensures that if the array reaches the last item, it will return back to 0
   const nextSlide = () => setCurrentIndex((prev) => (prev + 1) % imageCount);
+
+  // ensures that if the array reaches the first item, it will return back to the last index
   const prevSlide = () => setCurrentIndex((prev) => (prev - 1 + imageCount) % imageCount);
 
   return (
